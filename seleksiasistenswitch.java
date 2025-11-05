@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class seleksiasistenswitch {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        //Daftar mata kuliah
         String[] mk = {
             "Struktur Data",
             "Pemrograman Berorientasi Objek",
@@ -15,12 +16,23 @@ public class seleksiasistenswitch {
 
         System.out.println("=== PROGRAM SELEKSI ASISTEN DOSEN (SWITCH CASE) ===");
 
-        // Input nilai
+        // Input nilai mk
         for (int i = 0; i < mk.length; i++) {
             System.out.print("Masukkan nilai " + mk[i] + ": ");
             nilai[i] = in.nextDouble();
-            total += nilai[i];
+            
+            //Validasi nilai
+            if (nilai[i] < 0 || nilai[i] > 100) {
+            System.out.println("Nilai tidak valid! Masukkan antara 0-100.\n");
+            i--; // ulangi input untuk indeks ini
+            continue;
         }
+            total += nilai[i];
+
+    }
+            System.out.println("\n-------------------------------------------");
+
+
 
         double rata = total / mk.length;
 
